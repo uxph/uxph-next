@@ -1,9 +1,14 @@
-import React from "react";
+import Head from "next/head";
 import { Box, Container, Text } from "@chakra-ui/layout";
+import Footer from "../Footer";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, title = "UX Philippines" }) => {
   return (
     <>
+      <Head>
+        <title>{title}</title>
+        <link rel="icon" href="/images/brand_logos/uxph_icon.png" />
+      </Head>
       <Box as="nav" bg="gray.800" p={4}>
         <Container maxWidth="container.lg">
           <Text as="p" fontWeight="bold" color="white" align="center">
@@ -12,13 +17,7 @@ const Layout = ({ children }) => {
         </Container>
       </Box>
       {children}
-      <Box as="footer" bg="yellow.400" p={4}>
-        <Container maxWidth="container.lg">
-          <Text as="p" fontWeight="bold" color="white" align="center">
-            Footer
-          </Text>
-        </Container>
-      </Box>
+      <Footer />
     </>
   );
 };
